@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yogitha Medaboina - Interactive Resume</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Skill animation */
+    .skill-bar {
+      width: 0;
+      height: 1rem;
+      background-color: #3b82f6;
+      border-radius: 0.5rem;
+      transition: width 1.5s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-yellow-100 text-gray-800 font-serif">
+
+  <!-- Header Section -->
+  <header class="bg-blue-600 text-white py-16 text-center">
+    <h1 class="text-5xl font-bold">Yogitha Medaboina</h1>
+    <p class="mt-4 text-xl">Aspiring DevOps & Web Developer</p>
+    <div class="mt-6">
+      <a href="#about" class="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition">Explore</a>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 bg-white shadow-md z-50">
+    <ul class="flex justify-center space-x-8 py-4">
+      <li><a href="#about" class="hover:text-blue-600 transition">About</a></li>
+      <li><a href="#skills" class="hover:text-blue-600 transition">Skills</a></li>
+      <li><a href="#projects" class="hover:text-blue-600 transition">Projects</a></li>
+      <li><a href="#contact" class="hover:text-blue-600 transition">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about" class="max-w-4xl mx-auto py-20 px-4 text-center">
+    <h2 class="text-3xl font-bold mb-4">About Me</h2>
+    <p class="text-gray-700 leading-relaxed">
+      Hi! I’m Yogitha Medaboina, an aspiring DevOps engineer and web developer. I love building interactive web applications, automating processes, and learning new technologies. My goal is to combine my coding skills and DevOps knowledge to deliver efficient solutions.
+    </p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="bg-gray-200 py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Skills</h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="font-semibold mb-2">Python</h3>
+          <div class="w-full bg-gray-300 rounded-full">
+            <div class="skill-bar" data-width="90%"></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Docker / DevOps</h3>
+          <div class="w-full bg-gray-300 rounded-full">
+            <div class="skill-bar" data-width="80%"></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">JavaScript / React</h3>
+          <div class="w-full bg-gray-300 rounded-full">
+            <div class="skill-bar" data-width="85%"></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Jenkins / CI-CD</h3>
+          <div class="w-full bg-gray-300 rounded-full">
+            <div class="skill-bar" data-width="75%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Projects</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Project Card 1 -->
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition">
+          <h3 class="text-xl font-semibold mb-2">CI/CD Pipeline Project</h3>
+          <p class="text-gray-700 mb-4">A complete Jenkins CI/CD pipeline automating builds, tests, and deployments for a sample application.</p>
+          <a href="#" class="text-blue-600 font-semibold hover:underline">View on GitHub</a>
+        </div>
+        <!-- Project Card 2 -->
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition">
+          <h3 class="text-xl font-semibold mb-2">Interactive Resume</h3>
+          <p class="text-gray-700 mb-4">This very resume website! Built with Tailwind CSS and JavaScript, featuring smooth scroll and animated skill bars.</p>
+          <a href="#" class="text-blue-600 font-semibold hover:underline">Live Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-blue-600 text-white py-20">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+      <p class="mb-6">Feel free to reach out via email or connect on LinkedIn!</p>
+      <div class="space-x-4">
+        <a href="mailto:yogithamedaboina555@gmail.com" class="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition">Email Me</a>
+        <a href="https://linkedin.com/in/yogitha_medaboina" target="_blank" class="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    &copy; 2025 Yogitha Medaboina. All rights reserved.
+  </footer>
+
+  <!-- JavaScript for skill bar animation -->
+  <script>
+    const skillBars = document.querySelectorAll('.skill-bar');
+
+    window.addEventListener('scroll', () => {
+      skillBars.forEach(bar => {
+        const rect = bar.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          bar.style.width = bar.dataset.width;
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
