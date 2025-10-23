@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 echo 'Cloning portfolio repository...'
-                git branch: 'main', url: 'https://github.com/Yogitha01/resume-portfolio.git'
+                git branch: 'main', url: 'https://github.com/Yogitha01/resume_portfolio.git'
             }
         }
 
