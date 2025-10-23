@@ -9,26 +9,20 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Verify Files') {
             steps {
-                echo 'Preparing build files...'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Running HTML validation (optional)...'
-                // Add test commands if you have them
+                echo 'Listing project files...'
+                bat 'dir'
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying the portfolio website...'
-                // Example for local deploy (adjust path if needed)
-                sh '''
-                    mkdir -p /var/www/html/portfolio
-                    cp -r build/* /var/www/html/portfolio/
+                // Adjust destination path as needed
+                bat '''
+                if not exist C:\\Users\\Public\\portfolio mkdir C:\\Users\\Public\\portfolio
+                xcopy /s /y * C:\\Users\\Public\\portfolio\\
                 '''
             }
         }
